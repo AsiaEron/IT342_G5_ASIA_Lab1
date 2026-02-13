@@ -1,5 +1,6 @@
 package com.example.demo.Model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,7 +15,30 @@ public class UserModel {
     private String username;
     private String email;
     private String password;
+    private String verficationToken;
+    private boolean isVerified;
     
+    @Column(name = "reset_token")
+    private String resetToken;
+    
+    public String getVerficationToken() {
+        return verficationToken;
+    }
+    public void setVerficationToken(String verficationToken) {
+        this.verficationToken = verficationToken;
+    }
+    public boolean isVerified() {
+        return isVerified;
+    }
+    public void setVerified(boolean isVerified) {
+        this.isVerified = isVerified;
+    }
+    public String getResetToken() {
+        return resetToken;
+    }
+    public void setResetToken(String resetToken) {
+        this.resetToken = resetToken;
+    }
     public Long getId() {
         return id;
     }
